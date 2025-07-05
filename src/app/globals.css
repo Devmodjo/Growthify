@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --poppins: 'poppinsFont';
+  --lato: 'latoFont';
+  --montserrat: 'montserratF'
+}
+
+@font-face {
+  font-family: var(--poppins);
+  src: url('/public/font/Poppins/Poppins-Medium.ttf');
+}
+
+@font-face {
+  font-family: var(--lato);
+  src: url('/public/font/Lato-Regular.ttf');
+}
+
+@font-face {
+  font-family:var(--montserrat) ;
+  src: url('/public/font/Montserrat/static/Montserrat-Medium.ttf');
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+ }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+  font-family: var(--poppins);
+  text-transform: uppercase;
+}
