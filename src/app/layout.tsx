@@ -1,4 +1,5 @@
 import './globals.css'
+import { FaWhatsapp, FaTelegram, FaHome, FaStar, FaShoppingCart } from 'react-icons/fa';
 
 export const metadata = {
   title: 'Growthify',
@@ -14,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="hidden md:block bg-[#102A4D] px-6 py-4 flex justify-between items-center shadow-md">
           <h1 className="text-xl font-bold">Growthify</h1>
           <nav className="space-x-6">
-            <Link href="/" className="hover:text-blue-300">Accueil</Link>
+            <Link href="/" className="hover:text-blue-300 font-(fontFamily: 'poppinsFont')">Accueil</Link>
             <Link href="/commande" className="hover:text-blue-300">Commander</Link>
             <Link href="#temoignages" className="hover:text-blue-300">Témoignages</Link>
           </nav>
@@ -35,21 +36,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           className="fixed bottom-24 right-4 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 z-40"
           target="_blank"
         >
-          💬 Besoin d’aide ?
+          <FaWhatsapp />
+        </a>
+        <a
+          href="https://wa.me/237698219261"
+          className="fixed bottom-36 right-4 bg-blue-700 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 z-40"
+          target="_blank"
+        >
+          <FaTelegram />
         </a>
 
         {/* Bottom Nav Bar (mobile) */}
         <nav className="fixed bottom-0 md:hidden w-full bg-[#102A4D] border-t border-gray-600 flex justify-around py-2 text-sm text-white z-50">
           <Link href="/" className="flex flex-col items-center">
-            <span>🏠</span>
+            <span><FaHome/></span>
             Accueil
           </Link>
           <Link href="/commande" className="flex flex-col items-center">
-            <span>🛒</span>
+            <span><FaShoppingCart/></span>
             Commander
           </Link>
           <Link href="#temoignages" className="flex flex-col items-center">
-            <span>⭐</span>
+            <span><FaStar/></span>
             Avis
           </Link>
         </nav>

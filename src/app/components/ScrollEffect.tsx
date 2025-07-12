@@ -3,12 +3,12 @@ import { useInView } from "react-intersection-observer";
 
 import React from "react";
 
-type FadeInSectionProps = {
+type SectionProps = {
   children: React.ReactNode;
   delay?: number;
 };
 
-export function FadeInSection({ children, delay = 0 }: FadeInSectionProps) {
+export function FadeInSection({ children, delay = 0 }: SectionProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -21,7 +21,19 @@ export function FadeInSection({ children, delay = 0 }: FadeInSectionProps) {
   );
 }
 
-export function FadeLeftSection({ children, delay = 0 }: FadeInSectionProps) {
+export function ScaleTextEffect({ children, delay = 0 }: SectionProps) {
+  return (
+    <motion.div
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale : 1, opacity: 1 }}
+      transition={{ duration : 0.8, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function FadeLeftSection({ children, delay = 0 }: SectionProps) {
   return (
     <motion.div
       initial={{ opacity: 0, x: -50 }}
@@ -34,7 +46,7 @@ export function FadeLeftSection({ children, delay = 0 }: FadeInSectionProps) {
   );
 }
 
-export function FadeRightSection({ children, delay = 0 }: FadeInSectionProps) {
+export function FadeRightSection({ children, delay = 0 }: SectionProps) {
   return (
     <motion.div
       initial={{ opacity: 0, x: 50 }}
@@ -52,8 +64,8 @@ type SubTitleFadeInProps = {
   delay?: number;
 };
 
-export function SubTitleFadeIn({ children, delay = 0 }: SubTitleFadeInProps){
-  return(
+export function SubTitleFadeIn({ children, delay = 0 }: SubTitleFadeInProps) {
+  return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -62,16 +74,18 @@ export function SubTitleFadeIn({ children, delay = 0 }: SubTitleFadeInProps){
     >
       {children}
     </motion.div>
-  )
+  );
 }
-
 
 type AppearOnScrollProps = {
   children: React.ReactNode;
   threshold?: number;
 };
 
-export function AppearOnScroll({ children, threshold = 0.3 }: AppearOnScrollProps) {
+export function AppearOnScroll({
+  children,
+  threshold = 0.3,
+}: AppearOnScrollProps) {
   const [ref, inView] = useInView({
     triggerOnce: true, // l'animation ce joue un seule fois
     threshold: threshold, // l'animation se declenche a {threshold} de la hauteur de l'element
@@ -89,8 +103,10 @@ export function AppearOnScroll({ children, threshold = 0.3 }: AppearOnScrollProp
   );
 }
 
-export function AppearOnSrollToLeft({ children, threshold = 0.3 } : AppearOnScrollProps){
-
+export function AppearOnSrollToLeft({
+  children,
+  threshold = 0.3,
+}: AppearOnScrollProps) {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: threshold,
@@ -107,8 +123,10 @@ export function AppearOnSrollToLeft({ children, threshold = 0.3 } : AppearOnScro
     </motion.div>
   );
 }
-export function AppearOnSrollToRight({ children, threshold = 0.3 } : AppearOnScrollProps){
-
+export function AppearOnSrollToRight({
+  children,
+  threshold = 0.3,
+}: AppearOnScrollProps) {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: threshold,

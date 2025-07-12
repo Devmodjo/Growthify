@@ -1,26 +1,50 @@
 'use client';
 import Image from 'next/image';
-// import hero from '/hero.jpg';
+import { useState, useEffect } from 'react';
+import { ScaleTextEffect, FadeLeftSection,} from './components/ScrollEffect'
 
 export default function Home() {
+
+  const [statCommande, setStatCommande] = useState(0);
+  const [statClient, setStatClient] = useState(0);
+  const [moyenne, setMoyenne] = useState(0.0);
+  const [countOne, setCountOne] = useState(0);
+
+  useEffect(()=>{
+    setInterval(() => {
+      let i = 0;
+      do{
+        setStatCommande(i);
+        i++
+      }while(i<= 2000)
+    }, 1000)
+  }, [])
+
   return (
     <>
       {/* Hero section */}
       <section className="flex flex-col md:flex-row items-center gap-6 py-10">
         <div className="md:w-1/2 text-center md:text-left">
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">Fais exploser ta visibilité en quelques clics.</h1>
-          <p className="text-lg text-gray-300 mb-6">Growthify te permet d’acheter des abonnés, des likes ou des vues sur Instagram, TikTok, YouTube et Facebook.</p>
-          <a href="/commander" className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded text-white font-bold inline-block">Commander maintenant</a>
+          <ScaleTextEffect>
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">Fais exploser ta visibilité en quelques clics.</h1>
+            <p className="text-lg text-gray-300 mb-6">Growthify te permet d’acheter des abonnés, des likes ou des vues sur Instagram, TikTok, YouTube et Facebook.</p>
+          </ScaleTextEffect>
+
+          <FadeLeftSection>
+            <a href="/commande" className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded text-white font-bold inline-block">Commander maintenant</a>
+          </FadeLeftSection>
+         
+          
         </div>
         <div className="md:w-1/2">
-          <img src="/hero.jpg"  alt="Booster réseaux sociaux" className="rounded-xl shadow-xl" />
+          <Image src="/hero.jpg"  alt="Booster réseaux sociaux" width={600} height={200} className=" rounded-xl shadow-xl" />
         </div>
       </section>
 
       {/* Stats */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-[#1B365D] p-6 rounded-xl mb-10 text-center">
         <div>
-          <p className="text-3xl font-bold">+2000</p>
+          <p className="text-3xl font-bold">{`+${statCommande}`}</p>
           <p className="text-gray-300">Commandes livrées</p>
         </div>
         <div>
@@ -37,6 +61,7 @@ export default function Home() {
       <section id="temoignages" className="py-8">
         <h2 className="text-3xl font-bold mb-6 text-center">💬 Ils nous font confiance</h2>
         <div className="grid md:grid-cols-3 gap-6">
+          
           {['Amina', 'Junior', 'Fatou'].map((name, i) => (
             <div key={i} className="bg-[#1D3F6B] p-4 rounded-xl shadow-md">
               <Image
@@ -91,7 +116,7 @@ export default function Home() {
         <h2 className="text-2xl font-bold mb-2">📬 Reçois nos offres spéciales</h2>
         <p className="text-sm mb-4 text-gray-300">Rentre ton email pour recevoir nos promos exclusives.</p>
         <form className="flex flex-col md:flex-row justify-center gap-2">
-          <input type="email" placeholder="ton@email.com" className="p-2 rounded text-black" />
+          <input type="email" placeholder="ton@email.com" className="p-2 rounded bg-[#102A4D] text-white" />
           <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">S’inscrire</button>
         </form>
       </section>

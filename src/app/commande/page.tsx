@@ -101,11 +101,17 @@ export default function Commander() {
         <div className="bg-[#1D3F6B] p-6 rounded-xl">
           <h2 className="text-xl font-semibold mb-4">Étape 2 : Paiement</h2>
           <p className="mb-1">Total à payer : <strong>{prix}</strong></p>
-          <p className="mb-1">Orange Money : <strong>698219261</strong></p>
+          <p className="mb-1">Orange Money : <strong><input className="bg-[#102A4D] p-1 rounded text-white" placeholder="À compléter" /></strong></p>
+          <button
+            onClick={handleNextStep}
+            className="bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded"
+          >
+            J’ai payé ✅
+          </button>
           <p className="mb-4">MTN Mobile Money : <input className="bg-[#102A4D] p-1 rounded text-white" placeholder="À compléter" /></p>
           <button
             onClick={handleNextStep}
-            className="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded"
+            className="bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded"
           >
             J’ai payé ✅
           </button>
