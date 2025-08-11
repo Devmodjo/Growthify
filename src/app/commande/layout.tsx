@@ -29,13 +29,13 @@ export default function RootLayout({
           {children}
         </main>
 
-        <footer className="bg-[#102A4D] p-4 text-center text-sm mt-10">
+        {/* <footer className="bg-[#102A4D] p-4 text-center text-sm mt-10">
           <p>
             Mentions légales | Conditions d’utilisation | Politique de
             confidentialité
           </p>
           <p className="mt-1">Site sécurisé – Aucun mot de passe requis.</p>
-        </footer>
+        </footer> */}
 
         {/* Bouton WhatsApp */}
         <a
@@ -64,9 +64,9 @@ export default function RootLayout({
             <span><FaShoppingCart/></span>
             Commander
           </Link>
-          <Link href="#temoignages" className="flex flex-col items-center">
+          <Link href="/tarif" className="flex flex-col items-center">
             <span><FaStar/></span>
-            Avis
+            Tarif
           </Link>
         </nav>
       </body>
